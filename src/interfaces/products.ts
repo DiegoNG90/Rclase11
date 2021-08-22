@@ -1,6 +1,6 @@
 import { iAddress } from './address'
 
-export interface iProducts{
+export interface iProduct{
     id: string;
     title: string;
     price: number;
