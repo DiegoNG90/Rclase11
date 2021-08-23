@@ -7,7 +7,7 @@ import Loader from '../../Components/Loader'
 import { useAxios } from "../../Hooks/useAxios";
 import { iProduct } from "../../interfaces/products";
 
-const Products: React.FC = (): JSX.Element => {
+const ProductsView: React.FC = (): JSX.Element => {
   const [products, loading] : [any, boolean] = useAxios("search?q=zapatillas&limit=5");
   const { results }: { results: Array<iProduct> } = products;
 
@@ -25,7 +25,7 @@ const Products: React.FC = (): JSX.Element => {
         <Row className="justify-content-center">
           {results?.length > 0 ? (
             results.map((product: iProduct) => (
-              <ProductList product={product} />
+              <ProductList product={product} key={product.id} />
             ))
           ) : (
             <h3>No hay productos</h3>
@@ -36,4 +36,4 @@ const Products: React.FC = (): JSX.Element => {
   );
 };
 
-export default Products;
+export default ProductsView;

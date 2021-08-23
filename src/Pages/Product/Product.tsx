@@ -7,14 +7,14 @@ type ProductParam = {
 
 const ProductView: React.FC = () => {
   const { id } = useParams<ProductParam>();
-
+  console.log("id from ProductView", id);
   return (
     <>
       <Helmet>
-        <title>Producto: {id}</title>
+        <title>Producto - {id}</title>
         <meta charSet="utf-8" />
       </Helmet>
-      Producto individual {id}
+      Producto individual - {id}
     </>
   );
 };
