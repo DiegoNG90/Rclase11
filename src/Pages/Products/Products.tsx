@@ -24,7 +24,7 @@ const Products: React.FC = (): JSX.Element => {
       <Container>
         <Row className="justify-content-center">
           {results?.length > 0 ? (
-            results.map((product: git adiProduct) => (
+            results.map((product: iProduct) => (
               <ProductList product={product} />
             ))
           ) : (
