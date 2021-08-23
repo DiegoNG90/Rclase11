@@ -1,39 +1,22 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import { useParams } from "react-router-dom";
 
-import ProductList from "../../Components/ProductList";
-import Loader from '../../Components/Loader'
-import { useAxios } from "../../Hooks/useAxios";
-import { iProduct } from "../../interfaces/products";
+type ProductParam = {
+  id: string;
+};
 
-const Products: React.FC = (): JSX.Element => {
-  const [products, loading] : [any, boolean] = useAxios("search?q=zapatillas&limit=5");
-  const { results }: { results: Array<iProduct> } = products;
-
-  console.log(results);
-  if (loading) return <Loader />;
+const ProductView: React.FC = () => {
+  const { id } = useParams<ProductParam>();
 
   return (
     <>
       <Helmet>
-        <title>Productos</title>
+        <title>Producto: {id}</title>
         <meta charSet="utf-8" />
       </Helmet>
-
-      <Container>
-        <Row className="justify-content-center">
-          {results?.length > 0 ? (
-            results.map((product: iProduct) => (
-              <ProductList product={product} />
-            ))
-          ) : (
-            <h3>No hay productos</h3>
-          )}
-        </Row>
-      </Container>
+      Producto individual {id}
     </>
   );
 };
 
-export default Products;
+export default ProductView;
