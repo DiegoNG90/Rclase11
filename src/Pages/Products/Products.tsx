@@ -3,12 +3,14 @@ import { Container, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 
 import ProductList from "../../Components/ProductList";
-import Loader from '../../Components/Loader'
+import Loader from "../../Components/Loader";
 import { useAxios } from "../../Hooks/useAxios";
-import { iProduct } from "../../interfaces/products";
+import { iProduct } from "../../interfaces/product";
 
 const ProductsView: React.FC = (): JSX.Element => {
-  const [products, loading] : [any, boolean] = useAxios("search?q=zapatillas&limit=5");
+  const [products, loading]: [any, boolean] = useAxios(
+    "search?q=zapatillas&limit=5"
+  );
   const { results }: { results: Array<iProduct> } = products;
 
   console.log(results);
