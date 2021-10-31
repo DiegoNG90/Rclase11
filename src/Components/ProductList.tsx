@@ -1,19 +1,12 @@
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { iProduct } from "../interfaces/product";
-import { useParams } from "react-router-dom";
 
 export interface IProductProps {
   product: iProduct;
 }
-type ProductParam = {
-  id: string;
-};
 
 const ProductList: React.FC<IProductProps> = ({ product }) => {
-  const { id } = useParams<ProductParam>();
-  console.log("id", id);
-
   return (
     <Col md={12}>
       <Row>
@@ -25,7 +18,7 @@ const ProductList: React.FC<IProductProps> = ({ product }) => {
           />
         </Col>
         <Col md={6}>
-          <Link to={`/product/${id}`}>
+          <Link to={`/product/${product.id}`}>
             <h5>{product.title}</h5>
           </Link>
         </Col>
