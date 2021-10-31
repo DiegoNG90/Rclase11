@@ -14,7 +14,14 @@ const Search: React.FC = () => {
     <Row className="justify-content-center mb-4 mt-4">
       <Col md={6}>
         <Form.Control
+          style={{
+            height: "2rem",
+            width: "55%",
+            fontSize: "1.2rem",
+            margin: "1rem 0rem",
+          }}
           type="text"
+          size="lg"
           value={item}
           onKeyDown={handleSearch}
           onChange={(e) => setItem(e.target.value.trim())}

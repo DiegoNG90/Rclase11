@@ -7,21 +7,22 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Loader from '../Components/Loader'
-
+import Loader from "../Components/Loader";
+import Search from "../Components/Search";
 
 const ProductsView = React.lazy(() => import("../Pages/Products/Products"));
 const ProductView = React.lazy(() => import("../Pages/Product/Product"));
 
 const Routes = () => (
   <Router>
-    <Suspense fallback={< Loader />}>
+    <Search />
+    <Suspense fallback={<Loader />}>
       <Switch>
-        <Route path="/products" exact  >
-            < ProductsView />
+        <Route path="/products" exact>
+          <ProductsView />
         </Route>
         <Route path="/product/:id">
-            < ProductView />
+          <ProductView />
         </Route>
 
         <Redirect to="/products" />

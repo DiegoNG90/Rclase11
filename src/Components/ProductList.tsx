@@ -10,7 +10,7 @@ const ProductList: React.FC<IProductProps> = ({ product }) => {
   return (
     <Col md={12}>
       <Row>
-        <Col md={6}>
+        <Col md={6} style={{ width: "280px" }}>
           <img
             style={{ width: "200px" }}
             src={product.thumbnail}
