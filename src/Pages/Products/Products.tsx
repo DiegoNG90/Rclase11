@@ -9,7 +9,7 @@ import { iProduct } from "../../interfaces/product";
 
 const ProductsView: React.FC = (): JSX.Element => {
   const [products, loading]: [any, boolean] = useAxios(
-    "search?q=zapatillas&limit=5"
+    "search?q=zapatillas&limit=10"
   );
   const { results }: { results: Array<iProduct> } = products;
 
